@@ -392,6 +392,9 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
 
 </br>
 
+
+You can also use "__all__" in your fields to simply take all of them
+
 ## Views
 
 Django REST framework has a bunch of utility functions and classes for
