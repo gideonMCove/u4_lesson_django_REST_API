@@ -620,6 +620,8 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
        
 ```
 
+
+
 Now, when we load up our Artists, we'll be able to see all of our attached sons by their Titles, instead of their hyperlinked urls!
 
 
@@ -655,13 +657,14 @@ MIDDLEWARE = [
 ]
 ```
 
-Next, we will set which ports we will allow in. Once you have a deployed React App, you can add that URL in. For now, as we are just working with Localhost:3000, we'll put that in
+Next, we will set which ports we will allow in. Once you have a deployed React App, you can add that URL in. For now, as we are just working with Localhost:5173, we'll put that in.
+We also have our VSCode's LiveServer address in there (5555_
 ```
 CORS_ALLOWED_ORIGINS = [
     "https://example.com",
     "https://sub.example.com",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5555",
 ]
 
 ```
@@ -673,7 +676,7 @@ We can also swap that part out for this. Your OS and Python versions may differ,
 CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:5173"
 ]
 ```
 
