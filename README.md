@@ -203,62 +203,6 @@ other url files in our main one. We are doing this in order to make our app more
 modular. These "mini apps" in Django are supposed to plug into another parent
 app if needed, and modularity makes this possible.
 
-Next, Let's write our urls for our app in another file in the `tunr` directory.
-Create a file called called `urls.py` and write the following code block into
-it.
-
-```python
-# tunr/urls.py
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('', views.artist_list, name='artist_list'),
-]
-```
-
-The path takes three arguments:
-
-- The first argument represents the URL path. Here, the artist list is going to be rendered in the root URL. Similar to the "/" URL in other languages, the path of the root URL starts, ends, and has nothing in between. In Django, we do not even need to include the `/`. This way of doing URLs is great because they are explicit. We no longer have to reorder or rename URLs in order to make them work!
-- The URL's second argument is the view function this route is going to match up with in the view file. So, at the root URL, the application will run the `artist_list` function we will write in `views.py`.
-- Thirdly, we are going to use a named parameter. This is going to be referenced in our templates in order to link from one page to another.
-
-### You Do: Song List URL
-
-Add a URL to `tunr/urls.py` for the Song List.
-
-<details>
-<summary>Solution: Song List URL</summary>
-
-```python
-urlpatterns = [
-    path('', views.artist_list, name='artist_list'),
-    path('songs/', views.song_list, name='song_list')
-]
-```
-
-</details>
-
-
-
-The `namespace` in the project `urls.py` allows us to refer to paths more
-specifically, so we can say something like `rest_framework:path_name`.
-
-[Here are the docs](https://docs.djangoproject.com/en/3.2/topics/http/urls/#url-namespaces)
-for more information about the `namespace` argument.
-
-
-
-Our List view is ready to roll, now we can create a Detail route for our Artist. Here we are selecting one
-artist instead of all of them. To do this, we receive a second parameter to the
-function, the primary key of the artist we want to display. Let's look at where
-that is coming from and connect the URL to the view in `urls.py`.
-
-```python
-# tunr/urls.py
-path('artists/<int:pk>', views.artist_detail, name='artist_detail'),
-path('songs/<int:pk>', views.song_detail, name='song_detail'),
-```
 
 
 ## View Functions
@@ -464,6 +408,23 @@ class SongDetail(generics.RetrieveUpdateDestroyAPIView):
 </br>
 
 ## URLs
+
+
+Next, Let's write our urls for our app in another file in the `tunr` directory.
+Create a file called called `urls.py` and write the following code block into
+it.
+
+```python
+# tunr/urls.py
+from django.urls import path
+from . import views
+```
+
+The path takes three arguments:
+
+- The first argument represents the URL path. Here, the artist list is going to be rendered in the root URL. Similar to the "/" URL in other languages, the path of the root URL starts, ends, and has nothing in between. In Django, we do not even need to include the `/`. This way of doing URLs is great because they are explicit. We no longer have to reorder or rename URLs in order to make them work!
+- The URL's second argument is the view function this route is going to match up with in the view file. So, at the root URL, the application will run the `artist_list` function we will write in `views.py`.
+- Thirdly, we are going to use a named parameter. This is going to be referenced in our templates in order to link from one page to another.
 
 DRF comes with some pre-configured conventions for URLs, in what they call a
 `router`. These URLs map to views that follow a naming convention.
