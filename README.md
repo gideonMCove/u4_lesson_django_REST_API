@@ -235,7 +235,7 @@ one model to another.
 > Read more about
 > [ Serializers in the documentation](https://www.django-rest-framework.org/api-guide/serializers/)
 
-And, a bit more on [Serializers in Python](https://machinelearningmastery.com/a-gentle-introduction-to-serialization-for-python/)if you are interested
+And, a bit more on [Serializers in Python](https://machinelearningmastery.com/a-gentle-introduction-to-serialization-for-python/) if you are interested
 In this case, we want all of the fields from the Artist model in our serializer,
 so we will include all of them in our `fields` tuple.
 
