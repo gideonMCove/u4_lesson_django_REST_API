@@ -171,6 +171,16 @@ These URLs will be used for sign-in and sign-out pages. The framework will
 handle linking to these pages, we just need to include the URLs that have
 already been set up.
 
+### Note
+- Django Permissions can be a bit tricky when working with Front End CRUD attached. If you find yourself getting a 401 or 500 Status error when making an Axios Post request, you'll want to change the PERMISSON_CLASSES to be 
+
+```py
+'DEFAULT_PERMISSION_CLASSES': [
+   'rest_framework.permissions.AllowAny',
+]
+
+```
+
 
 ## URLs
 
@@ -468,6 +478,11 @@ urlpatterns = [
 </details>
 </br>
 
+
+
+## Note #2 
+- As you contine working with your DB, you may encounter an error that says something like  ` "model-detail" or "model-list" not found `, with the <model> being the name of your model. If you encounter this error, simply change the name in your url patterns to what it is looking for, either replacing the _ to a -, or the - to a _ depending on the situation
+
 ## Testing!
 
 Now let's hit the urls we just built out and see what happens.
@@ -518,9 +533,9 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
 +        fields = ('id', 'artist_url', 'photo_url', 'nationality', 'name', 'songs',)
 ```
 
-But wait, how do we add a new song that is related to the artist?  Let's update the `SongSerializer` too:
+But how do we add a new song that is related to the artist?  Let's update the `SongSerializer` too:
 
-```diff
+```py
 class SongSerializer(serializers.HyperlinkedModelSerializer):
     artist = serializers.HyperlinkedRelatedField(
         view_name='artist_detail',
@@ -546,8 +561,6 @@ Lets change our serializers so that when we load up our data, we can see the act
 First, lets put our child object before the parent object, then lets change up that 'songs' property in the ArtistSerializer to actually show the Song Serializer!
 
 ```
-
-
 class SongSerializer(serializers.HyperlinkedModelSerializer):
     artist = serializers.HyperlinkedRelatedField(
         view_name='artist_detail',
@@ -577,9 +590,7 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Artist
 
-   fields = ('id', 'artist_url', 'photo_url', 'nationality', 'name', 'songs',)
-        
-       
+   fields = ('id', 'artist_url', 'photo_url', 'nationality', 'name', 'songs',)       
 ```
 
 
