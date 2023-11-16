@@ -286,11 +286,7 @@ The `Meta` class within our `Artist` serializer class specifies meta data about
 our serializer. In this class, we tell it the model and what fields we want to
 serialize.
 
-The `view_name` specifies the name of the view given in the `urls.py` file. If
-we look at our `tunr/urls.py` file, we already have a path like this:
-
-```py
-path('songs/<int:pk>', views.song_detail, name='song_detail')
+The `view_name` specifies the name of the view given in the `urls.py` file we will build up
 ```
 
 ### You Do: Create a Serializer for Songs
