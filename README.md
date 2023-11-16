@@ -215,20 +215,8 @@ app if needed, and modularity makes this possible.
 
 
 
-## View Functions
-
-Using the `Artist` and `Song` models that we have already implemented, let's
-create templates to display our application's data! Views in Django are similar to
-controllers in Express. They pass data to our templates.
-
-```python
-# tunr/views.py
-from django.shortcuts import render
-
-from .models import Artist, Song
 
 
-```
 
 
 ## Serializers
@@ -351,6 +339,11 @@ class SongSerializer(serializers.HyperlinkedModelSerializer):
 You can also use "__all__" in your fields to simply take all of them
 
 ## Views
+
+
+Using the `Artist` and `Song` models that we have already implemented, let's
+create templates to display our application's data! Views in Django are similar to
+controllers in Express. They pass data to our templates.
 
 Django REST framework has a bunch of utility functions and classes for
 implementing sets of views in Django. Instead of creating each view
