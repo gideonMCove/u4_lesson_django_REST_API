@@ -287,7 +287,8 @@ our serializer. In this class, we tell it the model and what fields we want to
 serialize.
 
 The `view_name` specifies the name of the view given in the `urls.py` file we will build up
-```
+
+
 
 ### You Do: Create a Serializer for Songs
 
