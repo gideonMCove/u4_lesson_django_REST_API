@@ -384,7 +384,8 @@ Add in the views for the songs.
 <details>
 <summary>Solution</summary>
 
-```py
+```python
+
 from rest_framework import generics
 from .serializers import ArtistSerializer, SongSerializer
 from .models import Artist, Song
@@ -434,7 +435,8 @@ Since Django can handle multiple request types in one view and using one url, we
 just need to set up two routes: one for the single view and one for the list
 view.
 
-```py
+```python
+
 # tunr/urls.py
 from django.urls import path
 from . import views
@@ -453,7 +455,8 @@ Add in the urls for the song views.
 <details>
 <summary>Solution</summary>
 
-```py
+```python
+
  from django.urls import path
 from . import views
 from rest_framework.routers import DefaultRouter
