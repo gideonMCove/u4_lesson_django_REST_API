@@ -132,6 +132,8 @@ Before we get started, install the `djangorestframework` dependency.
 $ pipenv install djangorestframework
 ```
 
+NOTE : If you needed any different Install commands in the Intro lesson (Pip or Sudo Apt vs. Pipenv, use those again today!)
+
 Also, add it to your `INSTALLED_APPS` list in your `settings.py` so that you can
 use it within your project.
 
