@@ -184,7 +184,7 @@ already been set up.
 ```
 
 
-## URLs
+## URLs MAKE SURE TO CHANGE TUNR TO YOUR DATABASE NAME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Let's go ahead and see how we will access these views -- through the URLs!
 
